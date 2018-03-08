@@ -2,6 +2,23 @@ language: python
 python:
  - "2.7"
 
+dist: trusty
+sudo: required
+
+addons:
+ sonarcloud:
+ organization: "team3-ssw567-triangle567"
+ token: b7a569eabf492dcb9d5e36d321574f5ce8b346dd
+ branches:
+ - sonarcloud
+ 
 # command to run tests
 script:
  - python -m unittest TestTriangle
+ - sonar-scanner
+
+
+
+
+
+#sonar-scanner.bat -Dsonar.projectKey=team3-ssw567-triangle567 -Dsonar.organization=team3-ssw567-triangle567 -Dsonar.sources=. -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=b7a569eabf492dcb9d5e36d321574f5ce8b346dd
